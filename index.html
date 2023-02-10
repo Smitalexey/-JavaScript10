@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="content"></div>
+    <script src="./data.js"></script>
+    <script>
+        const contentEl = document.querySelector(".content");
+        const data = JSON.parse(dataApi);
+        console.log(data);
+        data.forEach((element) => {
+            const apiEl = document.createElement("div");
+            apiEl.classList.add("api");
+            contentEl.appendChild(apiEl);
+
+            const autorApi = document.createElement("h3");
+            autorApi.classList.add("autor__api");
+            autorApi.textContent = element.autor;
+            apiEl.appendChild(autorApi);
+
+            const insultApi = document.createElement("p");
+            insultApi.classList.add("insult__api");
+            insultApi.textContent = element.insult;
+            apiEl.appendChild(insultApi);
+
+            const imageApi = document.createElement("img");
+            imageApi.classList.add("image__api");
+            imageApi.src = element.image;
+            apiEl.appendChild(imageApi);
+
+        });
+    </script>
+</body>
+
+</html>
